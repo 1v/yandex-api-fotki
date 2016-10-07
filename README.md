@@ -35,6 +35,10 @@ orig = photo.links['orig']['href']
 => http://img-fotki.yandex.ru/get/117982/392595458.57fe/0_26753c_713f7b6a_orig
 ```
 
+## Documentation
+
+http://www.rubydoc.info/github/1v/yandex-api-fotki/
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
