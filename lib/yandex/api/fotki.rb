@@ -181,6 +181,13 @@ module Yandex
       end
 
       private
+        #
+        # XML parser wrapper. Because I'm not sure if it be persistent.
+        #
+        # @param [String] xml XML input
+        #
+        # @return [Hash] Hash
+        #
         def self.xml_to_hash(xml)
           Hash.from_xml(xml)
         end
