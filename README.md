@@ -1,5 +1,10 @@
 # Yandex::Api::Fotki
 
+[![Build Status](https://travis-ci.org/1v/yandex-api-fotki.svg?branch=master)](https://travis-ci.org/1v/yandex-api-fotki)
+[![Dependency Status](https://gemnasium.com/badges/github.com/1v/yandex-api-fotki.svg)](https://gemnasium.com/github.com/1v/yandex-api-fotki)
+[![Code Climate](https://codeclimate.com/github/1v/yandex-api-fotki/badges/gpa.svg)](https://codeclimate.com/github/1v/yandex-api-fotki)
+[![Test Coverage](https://codeclimate.com/github/1v/yandex-api-fotki/badges/coverage.svg)](https://codeclimate.com/github/1v/yandex-api-fotki/coverage)
+
 API wrapper for Yandex Fotki
 
 ## Installation
