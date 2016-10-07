@@ -1,0 +1,31 @@
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app" xmlns:f="yandex:fotki">
+  <id>urn:yandex:fotki:foobar:photo:1234567</id>
+  <author>
+    <name>foobar</name>
+    <f:uid>123456789</f:uid>
+  </author>
+  <title>open-uri20160618-5045-2pmqxk</title>
+  <link href="http://api-fotki.yandex.ru/api/users/foobar/photo/1234567/" rel="self" />
+  <link href="http://api-fotki.yandex.ru/api/users/foobar/photo/1234567/" rel="edit" />
+  <link href="http://fotki.yandex.ru/users/foobar/view/1234567/" rel="alternate" />
+  <link href="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_orig" rel="edit-media" />
+  <link href="http://api-fotki.yandex.ru/api/users/foobar/album/123456/" rel="album" />
+  <published>2016-06-18T02:12:43Z</published>
+  <app:edited>2016-06-18T02:12:43Z</app:edited>
+  <updated>2016-06-18T02:12:43Z</updated>
+  <f:access value="private" />
+  <f:xxx value="false" />
+  <f:hide_original value="false" />
+  <f:disable_comments value="false" />
+  <f:img height="75" href="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_XXS" size="XXS" width="75" />
+  <f:img height="450" href="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_XL" size="XL" width="800" />
+  <f:img height="169" href="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_M" size="M" width="300" />
+  <f:img height="281" href="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_L" size="L" width="500" />
+  <f:img height="50" href="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_XXXS" size="XXXS" width="50" />
+  <f:img height="720" href="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_XXXL" size="XXXL" width="1280" />
+  <f:img height="84" href="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_S" size="S" width="150" />
+  <f:img height="56" href="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_XS" size="XS" width="100" />
+  <f:img bytesize="0" height="1080" href="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_orig" size="orig" width="1920" />
+  <f:img height="576" href="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_XXL" size="XXL" width="1024" />
+  <content src="http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_orig" type="image/*" />
+</entry>

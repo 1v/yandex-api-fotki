@@ -1,0 +1,53 @@
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app" xmlns:f="yandex:fotki">
+  <id>urn:yandex:fotki:foobar:albums</id>
+  <author>
+    <name>foobar</name>
+    <f:uid>1</f:uid>
+  </author>
+  <title>foobar на Яндекс.Фотках</title>
+  <updated>2016-06-18T02:14:47Z</updated>
+  <link href="http://api-fotki.yandex.ru/api/users/foobar/albums/" rel="self" />
+  <link href="http://fotki.yandex.ru/users/foobar/albums/" rel="alternate" />
+  <entry>
+    <id>urn:yandex:fotki:foobar:album:111111</id>
+    <author>
+      <name>foobar</name>
+      <f:uid>1</f:uid>
+    </author>
+    <title>site</title>
+    <link href="http://api-fotki.yandex.ru/api/users/foobar/album/111111/" rel="self" />
+    <link href="http://api-fotki.yandex.ru/api/users/foobar/album/111111/" rel="edit" />
+    <link href="http://api-fotki.yandex.ru/api/users/foobar/album/111111/photos/" rel="photos" />
+    <link href="http://api-fotki.yandex.ru/api/users/foobar/photo/1304924/" rel="cover" />
+    <f:img height="75" href="http://img-fotki.yandex.ru/get/139626/111111789.0/0_111111_11111178_XXS" size="XXS" width="75" />
+    <f:img height="50" href="http://img-fotki.yandex.ru/get/139626/111111789.0/0_111111_11111178_S" size="S" width="150" />
+    <link href="http://api-fotki.yandex.ru/api/users/foobar/album/111111/photos.ymapsml/" rel="ymapsml" />
+    <link href="http://fotki.yandex.ru/users/foobar/album/111111/" rel="alternate" />
+    <published>2016-06-14T21:19:48Z</published>
+    <app:edited>2016-06-18T02:05:26Z</app:edited>
+    <updated>2016-06-18T02:05:26Z</updated>
+    <f:protected value="false" />
+    <f:image-count value="7" />
+  </entry>
+  <entry>
+    <id>urn:yandex:fotki:foobar:album:222222</id>
+    <author>
+      <name>foobar</name>
+      <f:uid>1</f:uid>
+    </author>
+    <title>Неразобранное</title>
+    <link href="http://api-fotki.yandex.ru/api/users/foobar/album/222222/" rel="self" />
+    <link href="http://api-fotki.yandex.ru/api/users/foobar/album/222222/" rel="edit" />
+    <link href="http://api-fotki.yandex.ru/api/users/foobar/album/222222/photos/" rel="photos" />
+    <link href="http://api-fotki.yandex.ru/api/users/foobar/photo/1305370/" rel="cover" />
+    <f:img height="75" href="http://img-fotki.yandex.ru/get/222222/222222222.0/0_222222_22222278_XXS" size="XXS" width="75" />
+    <f:img height="84" href="http://img-fotki.yandex.ru/get/222222/222222222.0/0_222222_22222278_S" size="S" width="150" />
+    <link href="http://api-fotki.yandex.ru/api/users/foobar/album/222222/photos.ymapsml/" rel="ymapsml" />
+    <link href="http://fotki.yandex.ru/users/foobar/album/222222/" rel="alternate" />
+    <published>2016-06-14T21:18:14Z</published>
+    <app:edited>2016-06-18T02:14:47Z</app:edited>
+    <updated>2016-06-18T02:14:47Z</updated>
+    <f:protected value="false" />
+    <f:image-count value="5" />
+  </entry>
+</feed>

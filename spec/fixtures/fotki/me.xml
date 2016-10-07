@@ -1,0 +1,18 @@
+<app:service xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
+  <app:workspace>
+    <atom:title>foobar на Яндекс.Фотках</atom:title>
+    <app:collection href="http://api-fotki.yandex.ru/api/users/foobar/albums/" id="album-list">
+      <atom:title>Все альбомы пользователя foobar</atom:title>
+      <app:accept>application/atom+xml; type=entry, application/json; type=entry</app:accept>
+    </app:collection>
+    <app:collection href="http://api-fotki.yandex.ru/api/users/foobar/photos/" id="photo-list">
+      <atom:title>Все фотографии пользователя foobar</atom:title>
+      <app:accept>image/*</app:accept>
+      <app:categories scheme="http://api-fotki.yandex.ru/api/users/foobar/tags/" />
+    </app:collection>
+    <app:collection href="http://api-fotki.yandex.ru/api/users/foobar/tags/" id="tag-list">
+      <atom:title>Все теги пользователя foobar</atom:title>
+      <app:accept />
+    </app:collection>
+  </app:workspace>
+</app:service>
