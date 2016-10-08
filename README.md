@@ -30,20 +30,38 @@ require 'yandex-api-fotki'
 ```
 
 ## Usage
-Инструкция как получить OAUTH_CODE https://tech.yandex.ru/oauth/doc/dg/tasks/get-oauth-token-docpage/
+Instruction how to get OAUTH_CODE [`tech.yandex.ru`](https://tech.yandex.ru/oauth/doc/dg/tasks/get-oauth-token-docpage/)
 ```ruby
 fotki = Yandex::API::Fotki.oauth(OAUTH_CODE)
 photo = fotki.photos.upload(:image => File.new('/file.png'),
                             :access => 'private',
                             :album => 123456,
                             :title => "My Image")
-orig = photo.links['orig']['href']
-=> http://img-fotki.yandex.ru/get/117982/392595458.57fe/0_26753c_713f7b6a_orig
+photo.id
+=> 123456
+photo.links
+=> {
+     "XXS" => {
+        "height" => "75",
+          "href" => "http://img-fotki.yandex.ru/get/123456/123456468.56be/0_123bcc_ad08a9de_XXS",
+          "size" => "XXS",
+         "width" => "75"
+    },
+...
+    "orig" => {
+        "bytesize" => "0",
+          "height" => "237",
+            "href" => "http://img-fotki.yandex.ru/get/123456/123456468.56be/0_1234bcc_ad08a9de_orig",
+            "size" => "orig",
+           "width" => "200"
+    }
+}
 ```
+All available options: [`tech.yandex.ru`](https://tech.yandex.ru/fotki/doc/concepts/add-photo-docpage/#multipart-format)
 
 ## Documentation
 
-http://www.rubydoc.info/github/1v/yandex-api-fotki/
+[`www.rubydoc.info`](http://www.rubydoc.info/github/1v/yandex-api-fotki/)
 
 ## License
 
