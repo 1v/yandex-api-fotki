@@ -23,6 +23,11 @@ And then execute:
 Or install it yourself as:
 
     $ gem install yandex-api-fotki
+    
+And require:
+```ruby
+require 'yandex-api-fotki'
+```
 
 ## Usage
 Инструкция как получить OAUTH_CODE https://tech.yandex.ru/oauth/doc/dg/tasks/get-oauth-token-docpage/
