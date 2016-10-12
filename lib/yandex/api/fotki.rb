@@ -39,7 +39,7 @@ module Yandex
       # @return [Hash]
       #
       def self.oauth_hash
-        { 'Authorization': "OAuth #{Fotki.oauth_code}" }
+        { 'Authorization' => "OAuth #{Fotki.oauth_code}" }
       end
       #
       # User api urls
