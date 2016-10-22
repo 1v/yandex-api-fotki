@@ -92,18 +92,24 @@ module Yandex
         #
         # List user albums
         #
-        # @param [Hash] hash
-        # @option hash [String] sort updated or rupdated or published or rpublished
-        # @option hash [Integer] offset Not implemented
-        # @option hash [Integer] limit 100 is max
+        # @param [Hash] options
+        # @option options [String] sort updated or rupdated or published or rpublished
+        # @option options [Integer] offset Not implemented
+        # @option options [Integer] limit 100 is max
         #
         # @return [Hash] Hash of Fotki::Album were keys is id of album
         # @see https://tech.yandex.ru/fotki/doc/operations-ref/albums-collection-get-docpage/
         #
-        def self.list(hash = { :sort => 'updated', :offset => 0, :limit => 10 })
-          return @list_cache unless @list_cache.nil?
+        def self.list(options = {})
+          options[:sort] ||= 'updated'
+          options[:offset] ||= 0
+          options[:limit] ||= 10
 
-          list = RestClient.get("#{Fotki.api_urls.album}#{hash[:sort]}/?limit=#{hash[:limit]}", Fotki.oauth_hash)
+          return @list_cache if !@list_cache.nil? && options === @list_options_cache
+
+          @list_options_cache = options
+
+          list = RestClient.get("#{Fotki.api_urls.album}#{options[:sort]}/?limit=#{options[:limit]}", Fotki.oauth_hash)
 
           @list_cache = Fotki.xml_to_hash(list)['feed']['entry']
           @list_cache = @list_cache.map { |i|
@@ -179,18 +185,16 @@ module Yandex
           # puts JSON.pretty_generate(entry)
         end
       end
-
-      private
-        #
-        # XML parser wrapper. Because I'm not sure if it be persistent.
-        #
-        # @param [String] xml XML input
-        #
-        # @return [Hash] Hash
-        #
-        def self.xml_to_hash(xml)
-          Hash.from_xml(xml)
-        end
+      #
+      # XML parser wrapper. Because I'm not sure if it be persistent.
+      #
+      # @param [String] xml XML input
+      #
+      # @return [Hash] Hash
+      #
+      def self.xml_to_hash(xml)
+        Hash.from_xml(xml)
+      end
     end
   end
 end
