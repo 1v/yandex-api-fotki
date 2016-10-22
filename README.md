@@ -8,6 +8,10 @@
 
 API wrapper for Yandex Fotki
 
+## Requirements
+
+* Ruby >= 2.0.0 (create [new issue](issues/new) if you need 1.9.3)
+
 ## Installation
 
 Add this line to your application's Gemfile:
