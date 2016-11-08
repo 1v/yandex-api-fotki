@@ -4,7 +4,7 @@ di = Gem::DependencyInstaller.new
 
 begin
   if RUBY_VERSION < "2.2.2"
-    di.install "activesupport", "~> 4.0", ">= 4.0.0"
+    di.install "activesupport", "< 5"
   else
     di.install "activesupport", ">= 4.0.0"
   end
