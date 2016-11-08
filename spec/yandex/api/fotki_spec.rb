@@ -1,5 +1,6 @@
-require "spec_helper"
 # encoding: utf-8
+require "spec_helper"
+
 describe Yandex::API::Fotki do
   it "has a version number" do
     expect(Yandex::API::Fotki::VERSION).not_to be nil
