@@ -24,7 +24,12 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.0.0'
 
   spec.add_runtime_dependency "rest-client", "~> 2.0", ">= 2.0.0"
-  spec.add_runtime_dependency "activesupport", ">= 4.0.0"
+  
+  if RUBY_VERSION < "2.2.2"
+    spec.add_runtime_dependency "activesupport", "~> 4.0", ">= 4.0.0"
+  else
+    spec.add_runtime_dependency "activesupport", ">= 4.0.0"
+  end
 
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"
