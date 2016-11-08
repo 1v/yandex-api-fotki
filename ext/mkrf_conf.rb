@@ -1,21 +1,22 @@
-require 'rubygems'
-require 'rubygems/command.rb'
-require 'rubygems/dependency_installer.rb' 
-begin
-  Gem::Command.build_args = ARGV
-  rescue NoMethodError
-end 
-inst = Gem::DependencyInstaller.new
+require 'rubygems/dependency_installer'
+
+di = Gem::DependencyInstaller.new
+
 begin
   if RUBY_VERSION < "2.2.2"
-    inst.install "activesupport", "~> 4.0", ">= 4.0.0"
+    di.install "activesupport", "~> 4.0", ">= 4.0.0"
   else
-    inst.install "activesupport", ">= 4.0.0"
+    di.install "activesupport", ">= 4.0.0"
   end
-  rescue
-    exit(1)
-end 
+rescue => e
+  warn "#{$0}: #{e}"
 
-f = File.open(File.join(File.dirname(__FILE__), "Rakefile"), "w")   # create dummy rakefile to indicate success
-f.write("task :default\n")
-f.close
+  exit!
+end
+
+puts "Writing fake Rakefile"
+
+# Write fake Rakefile for rake since Makefile isn't used
+File.open(File.join(File.dirname(__FILE__), 'Rakefile'), 'w') do |f|
+  f.write("task :default" + $/)
+end
