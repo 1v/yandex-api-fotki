@@ -10,7 +10,7 @@ API wrapper for Yandex Fotki
 
 ## Requirements
 
-* Ruby >= 2.0.0 (create [new issue](https://github.com/1v/yandex-api-fotki/issues/new) if you need 1.9.3)
+* Ruby >= 1.9.3
 
 ## Installation
 
