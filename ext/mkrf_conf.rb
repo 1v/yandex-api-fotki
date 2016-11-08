@@ -8,6 +8,12 @@ begin
   else
     di.install "activesupport", ">= 4.0.0"
   end
+  
+  if RUBY_VERSION < "2"
+    di.install "rest-client", "< 2"
+  else
+    di.install "rest-client", "~> 2.0"
+  end
 rescue => e
   exit!
 end
