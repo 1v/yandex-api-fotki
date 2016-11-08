@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.0.0'
 
   spec.add_runtime_dependency "rest-client", "~> 2.0", ">= 2.0.0"
-#   spec.add_runtime_dependency "activesupport", ">= 4.0.0"
+  # install activesupport here with ruby specific ruby version
   spec.extensions << 'ext/mkrf_conf.rb'
 
   spec.add_development_dependency "bundler", "~> 1.13"
