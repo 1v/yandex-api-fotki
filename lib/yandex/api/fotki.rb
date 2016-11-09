@@ -1,7 +1,7 @@
 require 'rest-client'
 require 'active_support/core_ext/hash/conversions'
 
-require "yandex/api/fotki/version"
+require 'yandex/api/fotki/version'
 
 module Yandex
   module API
