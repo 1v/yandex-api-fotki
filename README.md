@@ -17,7 +17,12 @@ API wrapper for Yandex Fotki
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'yandex-api-fotki'
+# for ruby >= 2.2.2
+gem 'yandex-api-fotki', '~> 1.0', '>= 1.0.0'
+```
+```ruby
+# for ruby < 2.2.2
+gem 'yandex-api-fotki', '~> 0.1', '>= 0.1.8'
 ```
 
 And then execute:
@@ -25,8 +30,14 @@ And then execute:
     $ bundle
 
 Or install it yourself as:
-
-    $ gem install yandex-api-fotki
+```bash
+# for ruby >= 2.2.2
+$ gem install yandex-api-fotki -v '~> 1.0'
+```
+```bash
+# for ruby < 2.2.2
+$ gem install yandex-api-fotki -v '~> 0.1'
+```
     
 And require:
 ```ruby
@@ -37,10 +48,10 @@ require 'yandex-api-fotki'
 Instruction how to get OAUTH_CODE [`tech.yandex.ru`](https://tech.yandex.ru/oauth/doc/dg/tasks/get-oauth-token-docpage/)
 ```ruby
 fotki = Yandex::API::Fotki.oauth(OAUTH_CODE)
-photo = fotki.photos.upload(:image => File.new('/file.png'),
-                            :access => 'private',
-                            :album => 123456,
-                            :title => "My Image")
+photo = fotki.photos.upload(image:  File.new('/file.png'),
+                            access: 'private',
+                            album:  123456,
+                            title:  'My Image')
 photo.id
 => 123456
 photo.links
