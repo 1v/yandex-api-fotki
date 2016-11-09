@@ -1,7 +1,7 @@
 module Yandex
   module API
     module Fotki
-      VERSION = '0.1.7'
+      VERSION = '0.1.8'
     end
   end
 end
