@@ -15,16 +15,32 @@ describe Yandex::API::Fotki do
   end
 
   describe 'Yandex::API::Fotki' do
+    context '#oauth' do
+      it do
+        expect(Yandex::API::Fotki.oauth_code).to eql('AAAAAAA')
+      end
 
-    it { expect(Yandex::API::Fotki.oauth_code).to eql('AAAAAAA') }
+      it 'test API key change' do
+        @fotki_temp = Yandex::API::Fotki.oauth('BBBBBB')
+        expect(Yandex::API::Fotki.oauth_code).to eql('BBBBBB')
+      end
+    end
 
     context '#api_urls' do
-      it { expect(@fotki.api_urls.album).to \
-        eql('http://api-fotki.yandex.ru/api/users/foobar/albums/') }
-      it { expect(@fotki.api_urls.photo).to \
-        eql('http://api-fotki.yandex.ru/api/users/foobar/photos/') }
-      it { expect(@fotki.api_urls.tag).to \
-        eql('http://api-fotki.yandex.ru/api/users/foobar/tags/') }
+      it do
+        expect(@fotki.api_urls.album).to \
+          eql('http://api-fotki.yandex.ru/api/users/foobar/albums/')
+      end
+
+      it do
+        expect(@fotki.api_urls.photo).to \
+          eql('http://api-fotki.yandex.ru/api/users/foobar/photos/')
+      end
+
+      it do
+        expect(@fotki.api_urls.tag).to \
+          eql('http://api-fotki.yandex.ru/api/users/foobar/tags/')
+      end
     end
 
     context '#albums' do
@@ -38,28 +54,31 @@ describe Yandex::API::Fotki do
           .and_return(fixture('fotki/albums-list-2.xml'))
           @album2 = @fotki.albums.list(sort: 'published')
       end
-      it { expect(@album1[111111].id).to eql(111111) }
-      it { expect(@album1[111111].title).to eql('site') }
-      it { expect(@album1[222222].title).to eql('Неразобранное') }
-      it { expect(@album1[111111].link['self']).to \
-      eql('http://api-fotki.yandex.ru/api/users/foobar/album/111111/') }
-      # cache testing
-      it { expect(@album2[111111]).to be_nil }
-      it { expect(@album2[333333].id).to eql(333333) }
-    end
 
-    context '#photos' do
-      before do
-        allow(RestClient).to receive(:post).and_return \
-          fixture('fotki/photos-upload.xml')
+      it do
+        expect(@album1[111111].id).to eql(111111)
       end
-      let(:photo) { @fotki.photos.upload(:image => '') }
-      it { expect{ @fotki.photos.upload(:access => 'private') }.to \
-      raise_error(RuntimeError, ':image is required') }
-      it { expect(photo.links['orig']['href']).to \
-        eql('http://img-fotki.yandex.ru/get/12345/123456789.0/0_123456_12345678_orig') }
-      it { expect(@fotki.photos.upload(:image => '', :album => 123456))\
-            .to be_a Yandex::API::Fotki::Photo }
+
+      it do
+        expect(@album1[111111].title).to eql('site')
+      end
+
+      it do
+        expect(@album1[222222].title).to eql('Неразобранное')
+      end
+
+      it do
+        expect(@album1[111111].link['self']).to \
+      eql('http://api-fotki.yandex.ru/api/users/foobar/album/111111/')
+      end
+      # cache testing
+      it do
+        expect(@album2[111111]).to be_nil
+      end
+
+      it do
+        expect(@album2[333333].id).to eql(333333)
+      end
     end
   end
 end
