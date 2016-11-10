@@ -1,0 +1,31 @@
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app" xmlns:f="yandex:fotki">
+  <id>urn:yandex:fotki:user:photo:1234567</id>
+  <author>
+    <name>user</name>
+    <f:uid>123456789</f:uid>
+  </author>
+  <title>Title</title>
+  <link href="http://api-fotki.yandex.ru/api/users/user/photo/1234567/" rel="self" />
+  <link href="http://api-fotki.yandex.ru/api/users/user/photo/1234567/" rel="edit" />
+  <link href="http://fotki.yandex.ru/users/user/view/1234567/" rel="alternate" />
+  <link href="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_orig" rel="edit-media" />
+  <link href="http://api-fotki.yandex.ru/api/users/user/album/123456/" rel="album" />
+  <published>2016-11-09T04:31:49Z</published>
+  <app:edited>2016-11-09T04:31:49Z</app:edited>
+  <updated>2016-11-09T04:31:49Z</updated>
+  <f:access value="private" />
+  <f:xxx value="false" />
+  <f:hide_original value="false" />
+  <f:disable_comments value="true" />
+  <f:img height="75" href="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_XXS" size="XXS" width="75" />
+  <f:img height="800" href="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_XL" size="XL" width="556" />
+  <f:img height="300" href="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_M" size="M" width="209" />
+  <f:img height="500" href="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_L" size="L" width="348" />
+  <f:img height="50" href="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_XXXS" size="XXXS" width="50" />
+  <f:img height="1280" href="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_XXXL" size="XXXL" width="890" />
+  <f:img height="150" href="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_S" size="S" width="104" />
+  <f:img height="100" href="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_XS" size="XS" width="70" />
+  <f:img bytesize="7424361" height="2774" href="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_orig" size="orig" width="1928" />
+  <f:img height="1024" href="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_XXL" size="XXL" width="712" />
+  <content src="http://img-fotki.yandex.ru/get/123456/123456789.387/0_143ded_f9a4545e_orig" type="image/*" />
+</entry>
