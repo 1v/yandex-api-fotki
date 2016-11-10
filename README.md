@@ -71,6 +71,8 @@ photo.links
            "width" => "200"
     }
 }
+# get photo info
+photo = fotki.photos.get(user: 'user', id: 123456)
 ```
 All available options: [`tech.yandex.ru`](https://tech.yandex.ru/fotki/doc/concepts/add-photo-docpage/#multipart-format)
 
