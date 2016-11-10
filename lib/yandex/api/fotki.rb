@@ -1,11 +1,17 @@
 require 'rest-client'
 require 'active_support/core_ext/hash/conversions'
 
-require 'yandex/api/fotki/version'
+require_relative 'fotki/version'
+require_relative 'fotki/me'
+require_relative 'fotki/albums'
+require_relative 'fotki/album'
+require_relative 'fotki/photos'
+require_relative 'fotki/photo'
 
 module Yandex
   module API
     module Fotki
+      API_HOST = 'http://api-fotki.yandex.ru'
       class RuntimeError < RuntimeError ; end
       #
       # Main method for authentification
@@ -16,9 +22,9 @@ module Yandex
       # @see https://tech.yandex.ru/oauth/doc/dg/reference/web-client-docpage/
       #
       def self.oauth(oauth_code)
-        return self unless @api_urls.nil?
+        return self if !@api_urls.nil? && @oauth_code === oauth_code
         @oauth_code = oauth_code
-        me = RestClient.get('http://api-fotki.yandex.ru/api/me/',
+        me = RestClient.get("#{API_HOST}/api/me/",
                              Fotki.oauth_hash)
         @api_urls = Me.new(me)
         self
@@ -64,126 +70,6 @@ module Yandex
       #
       def self.photos
         Photos
-      end
-      #
-      # Class Me is wrapper for user service document
-      #
-      # @see https://tech.yandex.ru/fotki/doc/operations-ref/service-document-get-docpage/
-      #
-      class Me
-        attr_reader :album, :photo, :tag
-        #
-        # Parse response from Fotki.oauth
-        #
-        # @param [RestClient::Response] response
-        #
-        def initialize(response)
-          # Nokogiri::XML(me).xpath("/app:service/app:workspace/app:collection[@id='album-list']/@href").text
-          collention = Fotki.xml_to_hash(response)['service']['workspace']['collection'].map{ |i| { i['id'] => i['href'] }}.inject(:merge)
-          @album = collention['album-list']
-          @photo = collention['photo-list']
-          @tag = collention['tag-list']
-        end
-      end
-      #
-      # Class Albums is wrapper for albums listing
-      #
-      class Albums
-        #
-        # List user albums
-        #
-        # @param [Hash] options
-        # @option options [String] sort updated or rupdated or published or rpublished
-        # @option options [Integer] offset Not implemented
-        # @option options [Integer] limit 100 is max
-        #
-        # @return [Hash] Hash of Fotki::Album were keys is id of album
-        # @see https://tech.yandex.ru/fotki/doc/operations-ref/albums-collection-get-docpage/
-        #
-        def self.list(options = {})
-          options[:sort] ||= 'updated'
-          options[:offset] ||= 0
-          options[:limit] ||= 10
-
-          return @list_cache if !@list_cache.nil? && options === @list_options_cache
-
-          @list_options_cache = options
-
-          list = RestClient.get("#{Fotki.api_urls.album}#{options[:sort]}/?limit=#{options[:limit]}", Fotki.oauth_hash)
-
-          @list_cache = Fotki.xml_to_hash(list)['feed']['entry']
-          @list_cache = @list_cache.map { |i|
-            album = Album.new(i)
-            { album.id => album }
-          }.inject(:merge)
-        end
-      end
-      #
-      # Class Album is wrapper for single album
-      #
-      class Album
-        attr_reader :id, :title, :link
-        #
-        # <description>
-        #
-        # @param [Hash] hash Hash from {Fotki::Albums.list} response
-        #
-        def initialize(hash)
-          @id = parse_id(hash['id'])
-          @title = hash['title']
-          @link = hash['link'].map{ |i| { i['rel'] => i['href'] } }.inject(:merge)
-        end
-
-        private
-          def parse_id(string)
-            string.split(':').last.to_i
-          end
-      end
-
-      #
-      # Class Photos provides photos collections
-      #
-      class Photos
-        #
-        # Uploading photo
-        #
-        # @param [Hash] hash
-        #
-        # == Required
-        # @option hash [File] :image IO stream of file. For example +File.new('tmp/file.png')+ or +open('\h\ttp://site.com/image.png')+
-        # == Optional
-        # @option hash [String] :title Title of image
-        # @option hash [String] :summary Description of image
-        # @option hash [Integer] :album Id of album to upload
-        # @option hash [String] :access public, friends or private
-        # @see https://tech.yandex.ru/fotki/doc/concepts/add-photo-docpage/#multipart-format
-        #
-        # @return [Fotki::Photo] Instance of Photo class
-        #
-        def self.upload(hash)
-          raise Fotki::RuntimeError, ':image is required' unless hash[:image]
-          response = RestClient.post(Fotki.api_urls.photo, hash, Fotki.oauth_hash)
-          Photo.new(response)
-        end
-      end
-      #
-      # Class Photo is wrapper for single photo
-      #
-      # @see https://tech.yandex.ru/fotki/doc/operations-ref/photo-get-docpage/
-      #
-      class Photo
-        attr_reader :id, :links
-        #
-        # Photo initialize
-        #
-        # @param [RestClient::Response] response
-        #
-        def initialize(response)
-          entry = Fotki.xml_to_hash(response)['entry']
-          @id = entry['id'].split(':').last.to_i
-          @links = entry['img'].map{ |i| { i['size'] => i } }.inject(:merge)
-          # puts JSON.pretty_generate(entry)
-        end
       end
       #
       # XML parser wrapper. Because I'm not sure if it be persistent.
